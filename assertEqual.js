@@ -1,8 +1,8 @@
 const assertEqual = function(actual, expected) {
   if (actual === expected) {
-    console.log('✅✅✅ Assertion Passed: 1 === 1');
+    console.log('✅✅✅ Assertion Passed: ${actual} === ${expected}');
   } else {
-    console.log('🛑🛑🛑 Assertion Failed: Lighthouse Labs !== Bootcamp');
+    console.log('🛑🛑🛑 Assertion Failed: $(actual} !=== ${expected}');
   }
 };
 
