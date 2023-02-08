@@ -6,8 +6,11 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-let head = function(arr) {
-  return arr[0];
+let head = function(array) {
+  if (array.length === 0) {
+    return undefined;
+  }
+  return array[0];
 };
 
 assertEqual(head([5,6,7]), 5);
