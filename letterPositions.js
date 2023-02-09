@@ -33,17 +33,18 @@ const assertArraysEqual = function(first, second) {
 
 const letterPositions = function(sentence) {
   const results = {};
-  // logic to update results here
-  for (let letter of sentence) {
-    if (sentence[letter] !== ' ') {
-      if (results[sentence[letter]]) {
-        results[sentence[letter]].push(Number(letter));
+
+  for (let i = 0; i < sentence.length; i++) {
+    const char = sentence[i]
+    if (char !== " ") {
+      if (results[char]) {
+        results[char].push(i);
       } else {
-        results[sentence[letter]] = [Number(letter)];
+        results[char] = [i];
       }
     }
   }
   return results;
-};
+}
 
-assertArraysEqual(letterPositions("hello"))
+assertArraysEqual(letterPositions("hello").e, [1])
