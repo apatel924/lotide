@@ -1,3 +1,5 @@
+const { inspect } = require('util');
+
 const assertEquals = function (actual, expected) {
   if (actual === expected) {
     console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
@@ -61,8 +63,6 @@ const longSleeveShirtObject = {
   color: "red",
   sleeveLength: "long"
 };
-eqObjects(shirtObject, longSleeveShirtObject); // => false
-assertEquals(eqObjects(shirtObject, longSleeveShirtObject), false);
 
 const assertObjectsEqual = function(actual, expected) {
   const inspect = require('util').inspect;
@@ -71,5 +71,8 @@ const assertObjectsEqual = function(actual, expected) {
   } else {
     console.log(`🛑🛑🛑 Assertion Failed: ${actual} !=== ${expected}`);
   }
+  console.log(`Example label: ${inspect(actual)}`)
 }
 
+eqObjects(shirtObject, longSleeveShirtObject); // => false
+assertObjectsEqual(shirtObject, longSleeveShirtObject);
