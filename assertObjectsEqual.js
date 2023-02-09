@@ -23,39 +23,32 @@ const eqArrays = function (first, second) {
   return true;
 };
 
-const eqObjects = function (object1, object2) {
-  // Get the keys of both objects
-  const keys1 = Object.keys(object1);
-  const keys2 = Object.keys(object2);
-
-  // Check if the number of keys is different between the two objects
-  if (keys1.length !== keys2.length) {
-    return false;
-  }
-
-  // Iterate over the keys and compare the values of the properties
-  for (const key of keys1) {
-    if (Array.isArray(object1[key]) && Array.isArray(object2[key])) {
-      // If both properties are arrays, use the eqArrays function to compare them
-      if (!eqArrays(object1[key], object2[key])) {
-        return false;
-      }
-    } else if (object1[key] !== object2[key]) {
-      // If both properties are not arrays, compare their values directly
-      return false;
-    }
-  }
-
-  // If all comparisons were successful, return true
-  return true;
-};
-
 //Pseudocode
 // getting keys of both objects (object1 and 2)
 // check if the number of keys is different between the two objects
 // check both keys and compare the values
 // if both properties are arrays, use the eqArrays function to compare them
 // if theyre not arrays compare their values directly
+
+const eqObjects = function (object1, object2) {
+  const keys1 = Object.keys(object1);
+  const keys2 = Object.keys(object2);
+
+  if (keys1.length !== keys2.length) {
+    return false;
+  }
+  for (const key of keys1) {
+    if (Array.isArray(object1[key]) && Array.isArray(object2[key])) {
+      if (!eqArrays(object1[key], object2[key])) {
+        return false;
+      }
+    } else if (object1[key] !== object2[key]) {
+      return false;
+    }
+  }
+  return true;
+};
+
 
 const shirtObject = { color: "red", size: "medium" };
 const anotherShirtObject = { size: "medium", color: "red" };
