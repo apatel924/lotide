@@ -32,6 +32,8 @@ const assertArraysEqual = function(first, second) {
 }
 
 const words = ["ground", "control", "to", "major", "tom"];
+const wordsLength = ["abcd", "zyxv"];
+
 
 const map = function(array, callback) {
   const results = [];
@@ -41,5 +43,7 @@ const map = function(array, callback) {
     return results;
 }
 
-const results1 = map(words, word => word[0]);
-console.log(results1)
+assertArraysEqual(map(words, word => word[0]), ['g', 'c', 't', 'm', 't']);
+assertArraysEqual(map(words, word => word.length), [6, 7, 2, 5, 3]);
+assertArraysEqual(map(wordsLength, word => word.length), [4, 4]);
+assertArraysEqual(map(words, word => word.toUpperCase()), ["GROUND", "CONTROL", "TO", "MAJOR", "TOM"])
