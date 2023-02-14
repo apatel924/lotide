@@ -39,7 +39,8 @@ const findKey = function(object, callback) {
       return key;
     }
   }
-}
+  return undefined;
+};
 
 
 findKey({
